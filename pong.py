@@ -1,7 +1,6 @@
 import sys,pygame
 pygame.init()
-
-size = width,height=320,240
+size = width,height=200, 400
 speed = [2,2]
 barSpeed = [10, 0]
 white = 255,255,255
@@ -19,7 +18,9 @@ bar = pygame.image.load("bar.bmp")
 ballRect = ball.get_rect()
 barRect = bar.get_rect()
 barRect.top = 200
+
 while 1:
+
     clock.tick(50)
 
     for event in pygame.event.get():
