@@ -69,16 +69,25 @@ class Environment:
         return self.screen
 
 size = 200, 200
+delay = 300
+interval = 50
 pygame.init()
+pygame.key.set_repeat(delay, interval)
 screen = pygame.display.set_mode(size)
 env = Environment(size)
 env.start()
 clock=pygame.time.Clock()
 while 1:
+    action = 0
     clock.tick(30)
     for event in pygame.event.get():
        if event.type == pygame.QUIT: sys.exit()
-    (reward, state, isTerminal) = env.step(1)
+       if event.type==pygame.KEYDOWN:
+            if event.key==pygame.K_LEFT:
+                action = -1
+            if event.key==pygame.K_RIGHT:
+                action = 1
+    (reward, state, isTerminal) = env.step(action)
     screen.blit(env.getScreen(), (0, 0))
     print reward
     print state
