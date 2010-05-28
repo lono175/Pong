@@ -80,3 +80,14 @@ if __name__ == "__main__":
     print controller.Q
     print controller.end(1)
     print controller.Q
+    import pickle
+    output = open('data.pkl', 'wb')
+    pickle.dump(controller, output)
+    output.close()
+    input = open('data.pkl', 'rb')
+    ctrl2 = pickle.load(input)
+    print "after load"
+    print ctrl2.Q
+    #pickle.loads(xp)
+    #y
+    

@@ -80,6 +80,14 @@ size = 200, 200
 delay = 300
 interval = 50
 action = 0
+
+app = gui.App()
+starCtrl = StarControl()
+
+c = gui.Container(align=-1,valign=-1)
+c.add(starCtrl,0,0)
+
+app.init(c)
 pygame.init()
 pygame.key.set_repeat(delay, interval)
 clock=pygame.time.Clock()
@@ -104,9 +112,9 @@ while 1:
         (reward, state, isTerminal) = env.step(action)
         action = agent.step(reward, state)
         screen.blit(env.getScreen(), (0, 0))
-        print reward
-        print state
-        print isTerminal
+        #print reward
+        #print state
+        #print isTerminal
         pygame.display.flip()
         if isTerminal:
             agent.end(reward)
