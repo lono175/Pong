@@ -61,7 +61,8 @@ if __name__ == "__main__":
 
 
     agentList = []
-    agentList.append(SARSA(0.01, 0.1, 0.95, (-1, 1)))
+    #agentList.append(SARSA(0.01, 0.1, 0.95, (-1, 1)))
+    agentList.append(SARSA(float(form['alphaLabel'].value) , float(form['epsilonLabel'].value), float(form['gammaLabel'].value), (-1, 1)))
 
     start = StartControl()
     ui.setStartListener(start.start)

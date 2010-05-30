@@ -18,7 +18,7 @@ class PongUI(gui.Table):
         
         self.tr()
         self.td(gui.Label("alpha: ",color=fg),align=-1)
-        slider = gui.HSlider(10, 0, 100, size=20, width=100, height=16, name='alphaSlider')
+        slider = gui.HSlider(1, 0, 100, size=20, width=100, height=16, name='alphaSlider')
         label = gui.Input(value = slider.value/100.0, size=5, name='alphaLabel')
         slider.connect(gui.CHANGE, self.slideChange, label.name, slider, 100.0)
         self.td(label, align=1)
@@ -87,11 +87,11 @@ class PongUI(gui.Table):
         r.connect(gui.CLICK, self.changePlayer, r.value)
         self.td(r)
 
-        self.tr()
-        self.td(gui.Label("  Q_Learning: ",color=fg),align=-1)
-        r = gui.Radio(g,value='Q_Learning')
-        r.connect(gui.CLICK, self.changePlayer, r.value)
-        self.td(r)
+        #self.tr()
+        #self.td(gui.Label("  Q_Learning: ",color=fg),align=-1)
+        #r = gui.Radio(g,value='Q_Learning')
+        #r.connect(gui.CLICK, self.changePlayer, r.value)
+        #self.td(r)
 
         self.tr()
         self.td(gui.Label("  Human: ",color=fg),align=-1)
